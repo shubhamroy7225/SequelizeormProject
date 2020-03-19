@@ -84,7 +84,7 @@ app.delete("/api/movies/:movieId", (req, res) => {
 //director
 app.get("/api/directors", (req, res) => {
   sql
-    .allDirectors()
+    .getAllDirectors()
     .then(data => {
       //consoles.logger.info({ message: "movieTitle sccessfully running and location is " + fileName })
       console.log("all data reterived");
@@ -99,7 +99,7 @@ app.get("/api/directors", (req, res) => {
 app.get("/api/directors/:directorId", (req, res) => {
   const director_id = req.params.directorId;
   sql
-    .directorId(director_id)
+    .getDirectorsWithId(director_id)
     .then(data => {
       console.log("data retreived for director id = " + director_id);
       res.send(data);
@@ -112,7 +112,7 @@ app.get("/api/directors/:directorId", (req, res) => {
 app.post("/api/directors", (req, res) => {
   const info = req.body;
   sql
-    .directorInsert(info)
+    .addNewDirector(info)
     .then(data => {
       console.log("data inserted sucessfully");
       res.send("data inserted sucessfully");

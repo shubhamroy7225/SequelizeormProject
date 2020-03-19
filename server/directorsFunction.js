@@ -13,7 +13,7 @@ var connection = new Sequelize('moviesData', 'shubham', 'Shubham@123', {
         idle: 1000
     }
 })
-module.exports.allDirectors = function allDirectors() {
+module.exports.getAllDirectors = function getAllDirectors() {
     return new Promise((resolve, reject) => {
         models.directors.findAll({
                 attributes: ['director']
@@ -25,7 +25,7 @@ module.exports.allDirectors = function allDirectors() {
             })
     })
 }
-module.exports.directorId=function directorId(director_id){
+module.exports.getDirectorsWithId=function getDirectorsWithId(director_id){
     return new Promise((resolve,reject)=>{
         models.directors.findAll({
             attributes:['director'],
@@ -40,7 +40,7 @@ module.exports.directorId=function directorId(director_id){
         })
     })
 }
-module.exports.directorInsert=function directorInsert(info){
+module.exports.addNewDirector=function addNewDirector(info){
     return new Promise((resolve,reject)=>{
         models.directors.create({
             "director":info["director"]
