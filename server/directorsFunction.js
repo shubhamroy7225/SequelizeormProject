@@ -56,7 +56,7 @@ module.exports.addNewDirector=function addNewDirector(info){
 }
 module.exports.updateDirectors=function updateDirectors(directorid,info){
     return new Promise((resolve,reject)=>{
-        models.movies.update({"director":info["director"]},{where:{id:directorid}})
+        models.directors.update({"director":info["director"]},{where:{id:directorid}})
         .then((data)=>{
             resolve(data)
         })

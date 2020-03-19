@@ -13,7 +13,7 @@ var connection = new Sequelize('moviesData', 'shubham', 'Shubham@123', {
         idle: 1000
     }
 })
-module.exports.movieTitle = function movieTitle() {
+module.exports.getAllMovies = function getAllMovies() {
   return new Promise((resolve, reject) => {
       models.movies.findAll({
               attributes: ['Title']
@@ -25,7 +25,7 @@ module.exports.movieTitle = function movieTitle() {
           })
   })
 }
-module.exports.movieId=function movieId(id){
+module.exports.getMovieWithId=function getMovieWithId(id){
   return new Promise((resolve,reject)=>{
       models.movies.findAll({
           attributes:['title'],
@@ -40,11 +40,11 @@ module.exports.movieId=function movieId(id){
       })
   })
 }
-module.exports.movieInsert=function movieInsert(info){
+module.exports.addNewMovie=function addNewMovie(info){
   return new Promise((resolve,reject)=>{
       
       models.movies.create({
-          "Rank":info["Rank"],
+          "id":info["id"],
           "Title":info["Title"]
 
       })
