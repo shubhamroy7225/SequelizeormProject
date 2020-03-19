@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 //const fileName = "server.js";
 app.get("/api/movies", (req, res) => {
   moviesquery
-    .movieTitle()
+    .getAllMovies()
     .then(data => {
       //consoles.logger.info({ message: "movieTitle sccessfully running and location is " + fileName })
       console.log("data reterived");
@@ -31,7 +31,7 @@ app.get("/api/movies", (req, res) => {
 app.get("/api/movies/:movieId", (req, res) => {
   const id = req.params.movieId;
   moviesquery
-    .movieId(id)
+    .getMovieWithId(id)
     .then(data => {
       console.log("data reterived");
       res.send(data);
@@ -44,7 +44,7 @@ app.get("/api/movies/:movieId", (req, res) => {
 app.post("/api/movies", (req, res) => {
   const info = req.body;
   moviesquery
-    .movieInsert(info)
+    .addNewMovie(info)
     .then(data => {
       console.log("data inserted sucessfully");
       res.send("data inserted sucessfully");
